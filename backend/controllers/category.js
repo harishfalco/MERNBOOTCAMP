@@ -22,7 +22,7 @@ exports.createCategory = (req,res)=>{
                 error:"not able to save category"
             })
         }
-        res.json({category})
+        res.json({cate})
     })
 };
 

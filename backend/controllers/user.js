@@ -3,7 +3,7 @@ const Order = require("../models/order")
 
 exports.getUserById = (req,res,next,id)=>{
     User.findById(id).exec((err,user)=>{
-         if(err || !user){
+         if(err){
              return res.status(400).json({
                  error:"no user in db"
              })
@@ -14,7 +14,6 @@ exports.getUserById = (req,res,next,id)=>{
 };
 
 exports.getUser = (req,res)=>{
-    //TODO:get back here for password
     req.profile.salt = " ";
     req.profile.encry_password = " ";
     req.profile.createdAt = undefined;

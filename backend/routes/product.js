@@ -11,11 +11,11 @@ router.param("userId",getUserById);
 router.param("productId",getProductId);
 
 //routes
-router.post("/product/create/:userID",isSignedIn,isAuthenticated,isAdmin,createProduct);
+router.post("/product/create/:userID",createProduct);
 router.get("/product/:productId",getProduct)
 router.get("/product/photo/:productId",photo)
 //delete
-router.delete("/product/:productId/:userID",isSignedIn,isAuthenticated,isAdmin,removeProduct)
+router.delete("/product/:productId/:userId",isSignedIn,isAuthenticated,isAdmin,removeProduct)
 //update
 router.put("/product/:productId/:userID",isSignedIn,isAuthenticated,isAdmin,updateProduct)
 //listing

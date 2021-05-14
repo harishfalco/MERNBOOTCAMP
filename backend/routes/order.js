@@ -22,4 +22,5 @@ router.get("/order/all/:userId", isSignedIn , isAuthenticated , isAdmin , getAll
 //statues of order
 router.get("/order/status/:userID" ,isSignedIn,isAuthenticated,getOrderStatus )
 router.get("/order/:orderId/status/:userID",isSignedIn,isAuthenticated,isAdmin,updateStatus)
+
 module.exports = router

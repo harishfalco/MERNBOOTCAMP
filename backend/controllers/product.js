@@ -8,13 +8,13 @@ const router = require("../routes/product");
 exports.getProductId = (req,res,next,id)=>{
     Product.findById(id)
     .populate("category")
-    .exec((err,prodcut)=>{
+    .exec((err,product)=>{
         if(err || !product){
             return res.status(400).json({
                 error:"cannot find product"
             })
         }
-        res.profile = prodcut
+        res.profile = product
         next()
     })
 }
@@ -77,6 +77,7 @@ exports.getProduct = (req,res)=>{
 exports.photo  = (req,res,next)=>{
     if(req.product.photo.data){
         res.set("Content-Type",req.product.photo.contentType)
+        console.log("came here to fetch data")
         return res.send(req.product.photo.data)
     }
     next();
@@ -85,7 +86,7 @@ exports.photo  = (req,res,next)=>{
 exports.removeProduct = (req,res)=>{
   let product = req.product;
   product.remove((err,product)=>{
-      if(err || !product){
+      if(err){
           return res.status(400).json({
               error:"Failed  to delete the product"
           })
