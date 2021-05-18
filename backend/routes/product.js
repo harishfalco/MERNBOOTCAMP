@@ -11,7 +11,7 @@ router.param("userId",getUserById);
 router.param("productId",getProductId);
 
 //routes
-router.post("/product/create/:userID",createProduct);
+router.post("/product/create/:userID",isSignedIn,isAuthenticated,isAdmin,createProduct);
 router.get("/product/:productId",getProduct)
 router.get("/product/photo/:productId",photo)
 //delete

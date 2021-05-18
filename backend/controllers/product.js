@@ -76,9 +76,13 @@ exports.getProduct = (req,res)=>{
 //middlewaare
 exports.photo  = (req,res,next)=>{
     if(req.product.photo.data){
+        // consoel.log(req.product)
         res.set("Content-Type",req.product.photo.contentType)
         console.log("came here to fetch data")
         return res.send(req.product.photo.data)
+    }
+    else{
+        console.log("cannot find")
     }
     next();
 }

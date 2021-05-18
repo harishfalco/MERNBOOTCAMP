@@ -27,18 +27,63 @@ const Home = () => {
     }, )
     return (
         <Base title="Home page" description="Welcome to the Tshirt Store">
+         <h1 className="text-white p-3">Oils</h1>
         <div className="row text-center">
-           <h1 className="text-white">All of oils</h1>
+           <hr></hr>
             <div className="row">
                 {
-                    products.map(
+                  products.map(
                         (product,index)=>{
-                            return(
-                                <div key={index} className="col-4 mb-4">
-                                         <Card product={product} />
-                                </div>
-
-                            )
+                            // console.log("categreies goes here: ",product.category.name.length);
+                            if(product.category.name === `oil`){
+                                return(
+                                    <div key={index} className="col-4 mb-4">
+                                             <Card product={product} />
+                                    </div>
+                                )
+                            }   
+                        }
+                    )
+                }
+            </div>
+        </div>
+        {/* snacks category */}
+        <h1 className="text-white p-3">Snacks</h1>
+        <div className="row text-center">
+           <hr></hr>
+            <div className="row">
+                {
+                  products.map(
+                        (product,index)=>{
+                            // console.log("categreies goes here: ",product.category);
+                            if(product.category.name === `snacks`){
+                                return(
+                                    <div key={index} className="col-4 mb-4">
+                                             <Card product={product} />
+                                    </div>
+                                )
+                            }   
+                        }
+                    )
+                }
+            </div>
+        </div>
+        {/* babycare */}
+        <h1 className="text-white p-3">BabyCare</h1>
+        <div className="row text-center">
+           <hr></hr>
+            <div className="row">
+                {
+                  products.map(
+                        (product,index)=>{
+                            // console.log("categreies goes here: ",product.category);
+                            if(product.category.name === `babycare`){
+                                return(
+                                    <div key={index} className="col-4 mb-4">
+                                             <Card product={product} />
+                                    </div>
+                                )
+                            }   
                         }
                     )
                 }

@@ -57,7 +57,7 @@ const AddProduct = () => {
            (data) =>{
             if(data.error){
               console.log(data.error);
-                setValues({...values,error:data.error})
+              setValues({...values,error:data.error})
             }else{
                 setValues({
                     ...values,
@@ -78,7 +78,7 @@ const AddProduct = () => {
 
 
    const handleChange =(name)=>event=>{
-         const value = name ==="photo" ? event.target.files[0] : event.target.value
+          const value = name ==="photo" ? event.target.files[0] : event.target.value
           formData.set(name,value);
           setValues({...values,[name]:value})
 
@@ -95,8 +95,7 @@ const AddProduct = () => {
                return <h4 className="text-success">failed to create product</h4>
            }
         }
-
-     
+    
     const createProductForm = () => (
         <form >
           <span>Post photo</span>

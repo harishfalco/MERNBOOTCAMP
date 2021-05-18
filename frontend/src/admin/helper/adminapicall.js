@@ -49,6 +49,16 @@ export const createProduct = (userId , token , product) => {
    .catch(err => console.log(err))
 }
 
+export const getAllCategories = ()=>{
+    return fetch(`${API}/categories`,{
+        method:"GET",
+    })
+    .then(response =>{
+        return response.json()
+    })
+    .catch(error => console.log(error))
+}
+
 export const getProducts = ()=>{
     return fetch(`${API}/products`,{
         method:"GET",
