@@ -4,3 +4,6 @@ const router = express.Router()
 const {saveMessage} = require("../controllers/Contactus")
 
 router.post("/contactus",saveMessage)
+
+
+module.exports = router

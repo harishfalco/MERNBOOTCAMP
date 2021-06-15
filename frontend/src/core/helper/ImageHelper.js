@@ -6,6 +6,8 @@ const ImageHelper = ({product} ) => {
    const imageUrl = product && product._id ? `${API}/product/photo/${product._id}` 
                   :
                  `https://www.pexels.com/photo/man-using-photoshop-software-3561340/` 
+             
+
     return (
         <div>
             <div className="rounded border border-success p-2">

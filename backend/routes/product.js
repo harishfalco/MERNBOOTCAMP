@@ -15,7 +15,7 @@ router.post("/product/create/:userID",isSignedIn,isAuthenticated,isAdmin,createP
 router.get("/product/:productId",getProduct)
 router.get("/product/photo/:productId",photo)
 //delete
-router.delete("/product/:productId/:userId",isSignedIn,isAuthenticated,isAdmin,removeProduct)
+router.delete("/product/:productId/:userId",removeProduct)
 //update
 router.put("/product/:productId/:userID",isSignedIn,isAuthenticated,isAdmin,updateProduct)
 //listing

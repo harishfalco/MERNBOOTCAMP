@@ -5,11 +5,12 @@ export const createMessage = (message)=>{
         method:"POST",
         headers:{
             Accept:"application/json",
+            "Content-Type":"application/json",
         },
-        body:message
+        body:JSON.stringify(message)
     })
     .then(response =>{
         return response.json()
     })
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 }

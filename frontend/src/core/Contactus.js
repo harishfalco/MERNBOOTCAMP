@@ -6,10 +6,10 @@ const Contactus = () => {
     const [message , setMessage] = useState({
         name:" ",
         email:" ",
-        description:" "
+        description:" ",
     })
 
-    const { name , email , description} = message
+    const { name , email , description , error} = message
 
     const handleChange =(name)=>event=>{
         setMessage({...message,[name]:event.target.value})
@@ -57,7 +57,7 @@ const Contactus = () => {
                             onChange={handleChange("email")}
                          />
                         <textarea 
-                            class="form-control"
+                           
                             placeholder="Leave a comment here" 
                             className="form-control mb-3"
                             value={description}

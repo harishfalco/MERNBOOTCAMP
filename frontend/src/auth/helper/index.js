@@ -54,7 +54,7 @@ export const signup = (user) =>{
     }
 
     export const isAuthenticated = () =>{
-        console.log("untilll here1");
+        // console.log("untilll here1");
         // if(typeof window == "undefined"){
         //     return false
         // }

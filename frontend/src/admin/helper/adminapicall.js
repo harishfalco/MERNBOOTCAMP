@@ -94,7 +94,7 @@ export const updateaProduct = (productId , userId , token , product) => {
     .catch(err => console.log(err))
  }
 
- export const deleteProduct = (productId,userId , token) => {
+ export const deleteProduct = (productId,userId,token) => {
     return fetch(`${API}/product/${productId}/${userId}`,{
         method :"DELETE",
         headers:{
@@ -103,6 +103,7 @@ export const updateaProduct = (productId , userId , token , product) => {
         }
     })
     .then(response =>{
+       
         return response.json()
     })
     .catch(err => console.log(err))

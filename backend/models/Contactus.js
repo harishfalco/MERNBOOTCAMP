@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const {ObjectId} = mongoose.Schema;
 
-const Contactus = new mongoose.Schema({
+const ContactusSchema = new mongoose.Schema({
     name :{
         type:String,
         requried:true,
@@ -14,11 +14,10 @@ const Contactus = new mongoose.Schema({
         required:true,
         unique:true
       },
-    message :{
+   message :{
         type : String,
         requried:true,
-        maxLength:100
+        maxLength:32
     }
 })
-
-module.exports = mongoose.model("Contactus",Contactus)
+module.exports = mongoose.model("Contactus",ContactusSchema)

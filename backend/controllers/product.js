@@ -1,9 +1,4 @@
-const Product = require("../models/product")
-const formidable = require("formidable")
-const _ = require("lodash")
-const fs = require("fs");
-const { isBuffer, sortBy } = require("lodash");
-const router = require("../routes/product");
+const Product = require("../models/product");
 
 exports.getProductId = (req,res,next,id)=>{
     Product.findById(id)
@@ -20,6 +15,7 @@ exports.getProductId = (req,res,next,id)=>{
 }
 
 exports.createProduct = (req,res)=>{
+    try{
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
 
@@ -46,6 +42,7 @@ exports.createProduct = (req,res)=>{
 
         //TODO:restricons on feild
         let product = new Product(fields)
+        if(!product) return res.send("error")
         //handle file here
         if(file.photo){
             if(file.photo.size > 3000000){
@@ -66,6 +63,10 @@ exports.createProduct = (req,res)=>{
           res.json(product)
       })
     })
+    }
+    catch(err){
+    console.log(err)
+    }
 }
 
 exports.getProduct = (req,res)=>{
@@ -75,14 +76,11 @@ exports.getProduct = (req,res)=>{
 
 //middlewaare
 exports.photo  = (req,res,next)=>{
-    if(req.product.photo.data){
-        // consoel.log(req.product)
+    console.log("the request here was : "+req.product);
+    if(req?.product.photo.data){
         res.set("Content-Type",req.product.photo.contentType)
         console.log("came here to fetch data")
         return res.send(req.product.photo.data)
-    }
-    else{
-        console.log("cannot find")
     }
     next();
 }
